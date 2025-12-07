@@ -64,11 +64,23 @@
   border-radius: 8px;
   border: 1px solid #3a3a3a;
   transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .graph-node:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2);
+  border-color: #4a9eff;
+}
+
+.node-type {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #3a3a3a;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.5rem;
 }
 
 .graph-node h3 {

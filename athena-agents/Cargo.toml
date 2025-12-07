@@ -21,4 +21,5 @@ bytes = { workspace = true }
 
 athena-graph = { path = "../athena-graph" }
 athena-security = { path = "../athena-security" }
+chrono = { workspace = true }
 

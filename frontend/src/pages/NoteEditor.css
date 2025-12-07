@@ -1,0 +1,125 @@
+.note-editor {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.editor-header h1 {
+  margin: 0;
+  color: #4a9eff;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editor-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.edit-button,
+.toggle-preview {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+.edit-button:hover,
+.toggle-preview:hover {
+  background-color: #4a4a4a;
+}
+
+.save-button {
+  background-color: #4a9eff;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #3a8eef;
+}
+
+.cancel-button {
+  background-color: #5a5a5a;
+  color: #e0e0e0;
+}
+
+.cancel-button:hover {
+  background-color: #6a6a6a;
+}
+
+.editor-content {
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  min-height: 500px;
+}
+
+.markdown-editor {
+  width: 100%;
+  min-height: 500px;
+  padding: 1.5rem;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.markdown-editor:focus {
+  outline: none;
+}
+
+.markdown-preview {
+  padding: 1.5rem;
+  color: #e0e0e0;
+  line-height: 1.8;
+}
+
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+  color: #4a9eff;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-preview code {
+  background-color: #1a1a1a;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.markdown-preview pre {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown-preview a {
+  color: #4a9eff;
+  text-decoration: none;
+}
+
+.markdown-preview a:hover {
+  text-decoration: underline;
+}
+

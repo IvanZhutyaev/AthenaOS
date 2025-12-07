@@ -50,12 +50,15 @@ export default function GraphView() {
       ) : nodes && nodes.length > 0 ? (
         <div className="graph-nodes">
           {nodes.map((node) => (
-            <div key={node.id} className="graph-node">
+            <div key={node.id} className="graph-node" onClick={() => window.location.href = `/note/${node.id}`}>
               <h3>{node.label}</h3>
               <p className="node-meta">ID: {node.id.slice(0, 8)}...</p>
               <p className="node-meta">
                 Created: {new Date(node.created_at * 1000).toLocaleDateString()}
               </p>
+              {node.properties?.type && (
+                <span className="node-type">{String(node.properties.type)}</span>
+              )}
             </div>
           ))}
         </div>

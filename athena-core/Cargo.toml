@@ -20,6 +20,7 @@ athena-graph = { path = "../athena-graph" }
 athena-security = { path = "../athena-security" }
 athena-agents = { path = "../athena-agents" }
 athena-sync = { path = "../athena-sync" }
+athena-graph = { path = "../athena-graph" }
 dirs = "5.0"
 toml = { workspace = true }
 

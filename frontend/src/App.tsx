@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Dashboard from './pages/Dashboard'
 import GraphView from './pages/GraphView'
 import Agents from './pages/Agents'
+import NoteEditor from './pages/NoteEditor'
 import Layout from './components/Layout'
 import './App.css'
 
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/graph" element={<GraphView />} />
+            <Route path="/note/:id" element={<NoteEditor />} />
             <Route path="/agents" element={<Agents />} />
           </Routes>
         </Layout>
