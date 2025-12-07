@@ -1,0 +1,94 @@
+.graph-view {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.graph-header h1 {
+  margin: 0;
+  color: #4a9eff;
+}
+
+.create-node-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.node-input {
+  padding: 0.75rem 1rem;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  min-width: 250px;
+}
+
+.node-input:focus {
+  outline: none;
+  border-color: #4a9eff;
+}
+
+.create-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #4a9eff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-button:hover {
+  background-color: #3a8eef;
+}
+
+.graph-nodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.graph-node {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.graph-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2);
+}
+
+.graph-node h3 {
+  margin: 0 0 0.5rem 0;
+  color: #4a9eff;
+}
+
+.node-meta {
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #888;
+}
+
+.empty-state p {
+  margin: 0.5rem 0;
+}
+

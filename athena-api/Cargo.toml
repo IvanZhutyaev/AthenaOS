@@ -1,0 +1,25 @@
+[package]
+name = "athena-api"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+tokio = { workspace = true }
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+hyper = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+athena-core = { path = "../athena-core" }
+athena-graph = { path = "../athena-graph" }
+athena-agents = { path = "../athena-agents" }
+athena-core = { path = "../athena-core" }
+

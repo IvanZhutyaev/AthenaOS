@@ -1,0 +1,70 @@
+.agents {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.agents h1 {
+  margin-bottom: 1rem;
+  color: #4a9eff;
+}
+
+.agents-info {
+  margin-bottom: 2rem;
+  color: #b0b0b0;
+}
+
+.agents-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.agent-card {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+}
+
+.agent-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #4a9eff;
+}
+
+.agent-id {
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  color: #888;
+  font-family: monospace;
+}
+
+.agent-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: #b0b0b0;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #888;
+}
+
+.status-indicator.active {
+  background-color: #4a9eff;
+  box-shadow: 0 0 8px rgba(74, 158, 255, 0.6);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #888;
+}
+
+.empty-state p {
+  margin: 0.5rem 0;
+}
+
