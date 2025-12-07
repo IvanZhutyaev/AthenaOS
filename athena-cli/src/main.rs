@@ -61,6 +61,12 @@ async fn main() -> Result<()> {
             let system = Arc::new(AthenaSystem::new(config.clone()).await?);
             system.initialize().await?;
 
+            // Start P2P synchronization if enabled
+            if config.enable_p2p {
+                system.start_p2p_sync().await?;
+                tracing::info!("P2P synchronization enabled and started");
+            }
+
             let server = ApiServer::new(system);
             let addr = SocketAddr::from(([127, 0, 0, 1], port));
             server.start(addr).await?;

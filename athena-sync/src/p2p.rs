@@ -93,6 +93,47 @@ impl P2PNode {
     pub async fn receive_message(&mut self) -> Option<SyncProtocol> {
         self.message_rx.recv().await
     }
+
+    /// Запустить P2P узел в фоновой задаче
+    pub fn start_background(p2p_node: std::sync::Arc<tokio::sync::RwLock<Option<Self>>>) {
+        tokio::spawn(async move {
+            loop {
+                let mut guard = p2p_node.write().await;
+                if let Some(ref mut p2p) = *guard {
+                    use futures::StreamExt;
+                    match futures::stream::poll_fn(|cx| {
+                        std::pin::Pin::new(&mut p2p.swarm).poll_next(cx)
+                    })
+                    .next()
+                    .await
+                    {
+                        Some(libp2p::swarm::SwarmEvent::NewListenAddr { address, .. }) => {
+                            tracing::info!("P2P: Listening on {}", address);
+                        }
+                        Some(libp2p::swarm::SwarmEvent::ConnectionEstablished { peer_id, .. }) => {
+                            tracing::info!("P2P: Connected to {}", peer_id);
+                        }
+                        Some(libp2p::swarm::SwarmEvent::ConnectionClosed { peer_id, .. }) => {
+                            tracing::info!("P2P: Disconnected from {}", peer_id);
+                        }
+                        Some(_) => {}
+                        None => {
+                            // Swarm закрыт, выходим
+                            tracing::info!("P2P: Swarm closed");
+                            break;
+                        }
+                    }
+                } else {
+                    // P2P узел удалён, выходим
+                    tracing::info!("P2P: Node removed, stopping background task");
+                    break;
+                }
+                // Освобождаем guard перед следующей итерацией
+                drop(guard);
+                tokio::time::sleep(tokio::time::Duration::from_millis(10)).await;
+            }
+        });
+    }
 }
 
 #[async_trait]

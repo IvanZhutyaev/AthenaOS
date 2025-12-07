@@ -61,5 +61,30 @@ impl AthenaSystem {
 
         Ok(())
     }
+
+    pub async fn start_p2p_sync(&self) -> Result<()> {
+        if !self.config.enable_p2p {
+            tracing::info!("P2P sync is disabled in config");
+            return Ok(());
+        }
+
+        let mut p2p_guard = self.p2p_node.write().await;
+        if let Some(ref mut p2p) = *p2p_guard {
+            let addr = format!("/ip4/0.0.0.0/tcp/{}", self.config.p2p_port)
+                .parse()
+                .map_err(|e| anyhow::anyhow!("Invalid P2P address: {}", e))?;
+            
+            p2p.start_listening(addr).await?;
+            tracing::info!("P2P node started listening on port {}", self.config.p2p_port);
+
+            // Запустить P2P в фоновой задаче
+            athena_sync::p2p::P2PNode::start_background(self.p2p_node.clone());
+            tracing::info!("P2P background task started");
+        } else {
+            tracing::warn!("P2P node is None, cannot start sync");
+        }
+
+        Ok(())
+    }
 }
 
